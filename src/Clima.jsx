@@ -1,13 +1,11 @@
 import { useEffect, useState } from "react";
 
-
 export function Clima() {
     const [ciudad, setCiudad] = useState("");
     const [clima, setClima] = useState(null);
     const [cargando, setCargando] = useState(false);
 
     const buscarClima = () => {
-
         setCargando(true);
         const url = `https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/${ciudad}?unitGroup=metric&key=GHJDSLTXTUUW3VNEN2FV36MEG&contentType=json`;
         fetch(url)
@@ -17,7 +15,7 @@ export function Clima() {
                 setCargando(false);
             })
             .catch((error) => {
-                console.error("Error al obtener el clima:", error);
+                console.error("Error fetching weather:", error);
                 setCargando(false);
             });
     };
@@ -25,30 +23,31 @@ export function Clima() {
     return (
         <div className="ContainerClima">
             <div className="ContainerSearch">
-                <h2>¿Querés saber el clima?</h2>
+                <h2>Do you want to know the weather?</h2>
                 <div className="containeToResponsive">
-                <input className="inputSerch"
-                    type="text"
-                    placeholder="Escribí una ciudad"
-                    value={ciudad}
-                    onChange={(e) => setCiudad(e.target.value)}
-                />
-                <button className="btn_Serch" onClick={buscarClima}>Buscar</button>
-             </div>
-                {cargando && <p>Cargando clima...</p>}
+                    <input
+                        className="inputSerch"
+                        type="text"
+                        placeholder="Type a city"
+                        value={ciudad}
+                        onChange={(e) => setCiudad(e.target.value)}
+                    />
+                    <button className="btn_Serch" onClick={buscarClima}>Search</button>
+                </div>
+                {cargando && <p>Loading weather...</p>}
             </div>
             {
                 clima && (
                     <div className="containerWeather">
                         <div className="containerResults">
                             <h3>{clima.resolvedAddress}</h3>
-                            <label>Temperatura actual:</label>
+                            <label>Current temperature:</label>
                             <p className="temp">{clima.currentConditions.temp}°C</p>
-                            <p>Condiciones: {clima.currentConditions.conditions}</p>
+                            <p>Conditions: {clima.currentConditions.conditions}</p>
                         </div>
                         {clima?.days?.[0]?.hours && (
                             <div className="hourlyForecast">
-                                <h4>Pronóstico por hora:</h4>
+                                <h4>Hourly forecast:</h4>
                                 <div className="containerHourGrid">
                                     <div className="hourGrid">
                                         {clima.days[0].hours.slice(0, 25).map((hour, index) => (
@@ -62,13 +61,9 @@ export function Clima() {
                                 </div>
                             </div>
                         )}
-
-
                     </div>
                 )
             }
         </div>
-
     );
 }
-
