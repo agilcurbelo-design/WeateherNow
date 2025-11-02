@@ -26,6 +26,7 @@ export function Clima() {
         <div className="ContainerClima">
             <div className="ContainerSearch">
                 <h2>¿Querés saber el clima?</h2>
+                <div className="containeToResponsive">
                 <input className="inputSerch"
                     type="text"
                     placeholder="Escribí una ciudad"
@@ -33,7 +34,7 @@ export function Clima() {
                     onChange={(e) => setCiudad(e.target.value)}
                 />
                 <button className="btn_Serch" onClick={buscarClima}>Buscar</button>
-
+             </div>
                 {cargando && <p>Cargando clima...</p>}
             </div>
             {
@@ -50,7 +51,7 @@ export function Clima() {
                                 <h4>Pronóstico por hora:</h4>
                                 <div className="containerHourGrid">
                                     <div className="hourGrid">
-                                        {clima.days[0].hours.slice(0, 8).map((hour, index) => (
+                                        {clima.days[0].hours.slice(0, 25).map((hour, index) => (
                                             <div key={index} className="hourCard">
                                                 <p><strong>{hour.datetime.slice(0, 5)}</strong></p>
                                                 <p>{hour.temp}°C</p>
