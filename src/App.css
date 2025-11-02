@@ -1,0 +1,88 @@
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #888787;
+}
+
+.SerchClima {
+    color: rgb(219, 219, 219);
+    justify-content: center;
+    
+  
+    text-align: center;
+}
+.All { 
+    border-radius: 20px;
+    background-size: cover;
+    margin: 6rem;
+    font-family: Arial, sans-serif;
+}
+.hourlyForecast {
+  margin-top: 20px;
+  text-align: center;
+}
+
+.hourGrid {
+  display: flex;
+  flex-wrap: nowrap;
+  gap: 10px;
+  justify-content: center;
+}
+
+.hourCard {
+  background-color: #4b4b4b;
+  border-radius: 8px;
+  padding: .8rem;
+  width: 100px;
+  box-shadow: 0 0 5px rgba(0,0,0,0.1);
+}
+.containerHourGrid {
+    background-color: #666666;
+    padding: 10px;
+    border-radius: 8px;
+    size: static;
+}
+.containerResults {
+    background-color: #666666;
+    padding: 10px;
+    border-radius: 8px;
+}
+.ContainerSearch {
+    background-color: #666666;
+    padding: 10px;
+    margin-bottom: 1.5rem ;
+    border-radius: 8px;
+}
+.ContainerClima {
+   display: flex;
+   flex-direction: column;
+   
+}
+.btn_Serch {
+    margin-left: 10px;
+    padding: 5px 10px;
+    border: none;
+    border-radius: 4px;
+    background-color: #1b1b1b;
+    color: white;
+    cursor: pointer;
+ 
+}
+.btn_Serch:hover {
+    background-color: #e4e4e4;
+    color: black;
+}
+.temp {
+    font-size: 2rem;
+    font-weight: bold;
+    font-family: 'Arial Black', sans-serif;
+}
+.inputSerch {
+    padding: 5px;
+    border-radius: 4px;
+    color: #1b1b1b;
+    background-color: #999999;
+    border: 1px solid #ccc;
+    width: 200px;
+}
